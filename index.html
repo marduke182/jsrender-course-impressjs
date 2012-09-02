@@ -186,114 +186,186 @@
                     </div>
                 </script>
 
-                </pre>
-                <b>usage</b>
-                <pre class="brush: js">
+                    </pre>
+                    <b>usage</b>
+                    <pre class="brush: js">
                     $( "#movieTemplate" ).render( movies )
-                </pre>
-                <b>output</b>
+                    </pre>
+                    <b>output</b>
 
-                <script id="movieTemplate" type="text/x-jsrender">
-                    <div>
-                        {{:#index+1}}: <b>{{>name}}</b> ({{>releaseYear}})
+                    <script id="movieTemplate" type="text/x-jsrender">
+                        <div>
+                            {{:#index+1}}: <b>{{>name}}</b> ({{>releaseYear}})
+                        </div>
+                        </script>
+                        <div id="movieList"></div>
+
+
+                        <script type="text/javascript">
+
+                            var movies = [
+                                { name: "The Red Violin", releaseYear: "1998" },
+                                { name: "Eyes Wide Shut", releaseYear: "1999" },
+                                { name: "The Inheritance", releaseYear: "1976" }
+                            ];
+
+                            // Render the template with the movies data and insert
+                            // the rendered HTML under the "movieList" element
+                            $( "#movieList" ).html(
+                            $( "#movieTemplate" ).render( movies )
+                        );
+
+                        </script>
                     </div>
-                    </script>
-                    <div id="movieList"></div>
+
+                    <div id="ventajas" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Ventajas jsRender</span>
+                        <br>
+                        <ul>
+                            <li>20 veces mas rapido</li>
+                            <li>Templates globales, jQuery Views</li>
+                            <li>Enlace de Datos, jQuery Observable</li>
+                            <li>Eventos</li>
+
+                        </ul>
+                    </div>
+
+                    <div id="templates" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Ejemplo de template</span>
+                        <br>
+
+                    </div>
+
+                    <div id="objects" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Ejemplo de objetos</span>
+                        <br>
+                    </div>
+
+                    <div id="if" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Ejemplo de if</span>
+                        <br>
+
+                    </div>
+
+                    <div id="for" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Ejemplo de for</span>
+                        <br>
+                    </div>
+
+                    <div id="tags" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Ejemplo de template</span>
+                        <br>
+
+                    </div>
+
+                    <div id="helper" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Ejemplo de template</span>
+                        <br>
+
+                    </div>
+
+                    <div id="jsview" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Explicación jsview</span>
+                        <br>
+                    </div>
+
+                    <div id="linking" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Enlace de datos</span>
+                        <br>
+                    </div>
+
+                    <div id="change_template" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Cambio de templates</span>
+                        <br>
+                    </div>
+
+                    <div id="top_level_link" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Enlazando paginas sin template</span>
+                        <br>
+                    </div>
+
+                    <div id="link_form" class="step list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                        <span class="header">Enlazando formularios</span>
+                        <br>
+                    </div>
+
+                    <!--            <div class="step slide" data-x="0" data-y="-1500">
+                                    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
+                                </div>
+                    
+                                <div class="step slide" data-x="1000" data-y="-1500">
+                                    <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+                                </div>
+                    
+                    
+                                <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+                                    <span class="try">then you should try</span>
+                                    <h1>impress.js<sup>*</sup></h1>
+                                    <span class="footnote"><sup>*</sup> no rhyme intended</span>
+                                </div>
+                    
+                                <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+                                    <p>It's a <strong>presentation tool</strong> <br/>
+                                        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
+                                        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+                                </div>
+                    
+                                <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+                                    <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+                                </div>
+                    
+                    
+                                <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+                                    <p>and <b>tiny</b> ideas</p>
+                                </div>
+                    
+                    
+                                <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+                                    <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
+                                </div>
+                    
+                                <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+                                    <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+                                </div>
+                    
+                                <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+                                    <p>want to know more?</p>
+                                    <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+                                </div>
+                    
+                                <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+                                    <p>one more thing...</p>
+                                </div>
+                    
+                    
+                                <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+                                    <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
+                                    <span class="footnote">* beat that, prezi ;)</span>
+                                </div>-->
 
 
-                    <script type="text/javascript">
+                    <div id="overview" class="step" data-x="-2000" data-y="0" data-scale="45">
+                    </div>
 
-                        var movies = [
-                            { name: "The Red Violin", releaseYear: "1998" },
-                            { name: "Eyes Wide Shut", releaseYear: "1999" },
-                            { name: "The Inheritance", releaseYear: "1976" }
-                        ];
-
-                        // Render the template with the movies data and insert
-                        // the rendered HTML under the "movieList" element
-                        $( "#movieList" ).html(
-                        $( "#movieTemplate" ).render( movies )
-                    );
-
-                    </script>
                 </div>
-                <!--            <div class="step slide" data-x="0" data-y="-1500">
-                                <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-                            </div>
-                
-                            <div class="step slide" data-x="1000" data-y="-1500">
-                                <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
-                            </div>
-                
-                
-                            <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-                                <span class="try">then you should try</span>
-                                <h1>impress.js<sup>*</sup></h1>
-                                <span class="footnote"><sup>*</sup> no rhyme intended</span>
-                            </div>
-                
-                            <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-                                <p>It's a <strong>presentation tool</strong> <br/>
-                                    inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-                                    and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
-                            </div>
-                
-                            <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-                                <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
-                            </div>
-                
-                
-                            <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-                                <p>and <b>tiny</b> ideas</p>
-                            </div>
-                
-                
-                            <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-                                <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
-                            </div>
-                
-                            <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-                                <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-                            </div>
-                
-                            <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-                                <p>want to know more?</p>
-                                <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
-                            </div>
-                
-                            <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-                                <p>one more thing...</p>
-                            </div>
-                
-                
-                            <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-                                <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-                                <span class="footnote">* beat that, prezi ;)</span>
-                            </div>-->
 
 
-                <div id="overview" class="step" data-x="-2000" data-y="0" data-scale="45">
+                <div class="hint">
+                    <p>Use a spacebar or arrow keys to navigate</p>
                 </div>
-
-            </div>
-
-
-            <div class="hint">
-                <p>Use a spacebar or arrow keys to navigate</p>
-            </div>
-            <script>
-                if ("ontouchstart" in document.documentElement) { 
-                    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-                }
-            </script>
+                <script>
+                    if ("ontouchstart" in document.documentElement) { 
+                        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+                    }
+                </script>
 
 
-            <script src="js/impress.js"></script>
-            <script>impress().init();</script>
-            <script type="text/javascript">
-                SyntaxHighlighter.all()
-            </script>
-        </body>
-    </html>
+                <script src="js/impress.js"></script>
+                <script>impress().init();</script>
+                <script type="text/javascript">
+                    SyntaxHighlighter.all()
+                </script>
+            </body>
+        </html>
 
 
