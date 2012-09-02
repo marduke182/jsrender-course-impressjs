@@ -489,6 +489,8 @@ a:focus {
 */
 #overview { display: none }
 
+
+
 /*
     We also make other steps visible and give them a pointer cursor using the
     `impress-on-` class.
@@ -672,3 +674,22 @@ a:focus {
     Thanks for reading. I hope you enjoyed it at least as much as I enjoyed writing it
     for you.
 */
+.list ul {
+    list-style: decimal;
+    padding-left: 20px;
+}
+
+.list .header{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.impress-on-actualidad2 .actualidad {
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+.code {
+    font-size: 24px;
+}

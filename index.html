@@ -1,21 +1,26 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=1024" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
-
-        <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
-        <meta name="author" content="Bartek Szopka" />
+        <title>jsRender - Express</title>
 
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
-
         <link href="css/impress-demo.css" rel="stylesheet" />
 
         <link rel="shortcut icon" href="favicon.png" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <script type="text/javascript" src="js/shCore.js"></script>
+        <script type="text/javascript" src="js/shBrushJScript.js"></script>
+        <script type="text/javascript" src="js/shBrushCss.js"></script>
+        <script type="text/javascript" src="js/shBrushXml.js"></script>
+        <script src="http://code.jquery.com/jquery.js" type="text/javascript"></script>
+        <script src="http://borismoore.github.com/jsrender/jsrender.js" type="text/javascript"></script>
+        <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+        <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
     </head>
 
 
@@ -28,95 +33,267 @@
 
         <div id="impress">
 
-            <div id="title" class="step" data-x="0" data-y="0" data-scale="30">
+            <div id="title" class="step" data-x="0" data-y="0" data-scale="40">
                 <span class="try">Creando con</span>
                 <h1>jsRender
-<!--                    <sup>*</sup>-->
+                    <!--                    <sup>*</sup>-->
                 </h1>
-<!--                <span class="footnote"><sup>*</sup> no rhyme intended</span>-->
+                <!--                <span class="footnote"><sup>*</sup> no rhyme intended</span>-->
             </div>
 
-            <div class="step" data-x="-9800" data-y="-4000" >
-                <span class="try">¿La necesidad?</span>
+            <div id="need" class="step list" data-x="-13400" data-y="-5000" data-rotate="-90" >
+                <span class="header">¿La necesidad?</span>
+                <br>
+                <ul>
+                    <li>Interfaces Dinámicas</li>
+                    <li>Rapidez</li>
+                    <li>Usabilidad</li>
+                    <li>Mantenibilidad</li>
+                    <li>Enlace Interfaz-JSON</li>
+
+                </ul>
+
+
+            </div>
+
+            <div id="actualidad" class="step actualidad list" data-x="-10800" data-y="-5200" data-scale="0.5">
+                <span class="header">Actualidad</span>
+                <br>
+                <ul>
+                    <li><a href="#mustache">Mustache</a></li>
+                    <li><a href="#ejs">Ejs</a></li>
+                    <li><a href="#jade">Jade</a></li>
+                    <li><a href="#jsrender">jsRender</a></li>
+
+                </ul>
+
+
+            </div>
+
+            <div id="mustache" class="step code" data-x="-10880" data-y="-5240" data-scale="0.01">
+                <b>view</b>
+                <pre class="brush: js">
+                    {
+                    "name": "Chris",
+                    "company": "<b>GitHub</b>"
+                    }           
+                </pre>
+                <b>template</b>
+                <pre class="brush: js">
+                    * {{name}}
+                    * {{age}}
+                    * {{company}}
+                    * {{{company}}}
+                    * {{&company}}
+                </pre>
+                <b>usage</b>
+                <pre class="brush: js">
+                    var output = Mustache.render(template, view);
+                </pre>
+                <b>output</b>
+                <pre class="brush: js">
+                    * Chris
+                    *
+                    * &lt;b&gt;GitHub&lt;/b&gt;
+                    * <b>GitHub</b>
+                    * <b>GitHub</b>
+                </pre>
+
+            </div>
+
+
+            <div id="actualidad2" class="step overview" data-x="-10800" data-y="-5200" data-scale="0.5">
+            </div>
+
+            <div id="ejs" class="step code" data-x="-10950" data-y="-5200" data-scale="0.01">
+                <b>The Data</b>
+                <pre class="brush: js">
+                {	title:	'Cleaning Supplies'
+                        supplies:	['mop', 'broom', 'duster']	
+                }         
+                </pre>
+                <b>The template</b>
+                <pre class="brush: xml">
+                    <ul>
+                    <% for(var i=0; i<supplies.length; i++) {%>
+                    <li><%= supplies[i] %></li>
+                    <% } %>
+                    </ul>
+                </pre>
+                <b>usage</b>
+                <pre class="brush: js">
+                    html = new EJS({url: '/template.ejs'}).render(data);
+                </pre>
+                <b>output</b>
+                <ul style="list-style-type: disc;">
+                    <li>mop</li>
+                    <li>broom</li>
+                    <li>duster</li>
+                </ul>
+
+
+            </div>
+            <div id="actualidad2" class="step overview" data-x="-10800" data-y="-5200" data-scale="0.5">
+            </div>
+
+            <div id="jade" class="step code" data-x="-10940" data-y="-5162" data-scale="0.01">
+                <b>The Data</b>
+                <pre class="brush: js">
+                {	title:	'Cleaning Supplies'
+                        supplies:	['mop', 'broom', 'duster']	
+                }         
+                </pre>
+                <b>The template</b>
+                <pre class="brush: xml">
+                    ul
+                    - for (var key in supplies)
+                            li=supplies[key]
+                </pre>
+                <b>usage</b>
+                <pre class="brush: js">
+                    var fn = jade.compile(template, data);
+                </pre>
+                <b>output</b>
+                <ul style="list-style-type: disc;">
+                    <li>mop</li>
+                    <li>broom</li>
+                    <li>duster</li>
+                </ul>
+
+            </div>
+
+
+
+
+            <div id="actualidad2" class="step overview" data-x="-10800" data-y="-5200" data-scale="0.5">
+            </div>
+
+            <div id="jsrender" class="step code" data-x="-10890" data-y="-5130" data-scale="0.01">
+                <b>The Data</b>
+                <pre class="brush: js">
+                    [
+                            { name: "The Red Violin", releaseYear: "1998" },
+                            { name: "Eyes Wide Shut", releaseYear: "1999" },
+                            { name: "The Inheritance", releaseYear: "1976" }
+                    ];        
+                </pre>
+                <b>The template</b>
+                <pre class="brush: xml">
+
+                <script id="movieTemplate" type="text/x-jsrender">
+                    <div>
+                        {{:#index+1}}: <b>{{>name}}</b> ({{>releaseYear}})
+                    </div>
+                </script>
+
+                </pre>
+                <b>usage</b>
+                <pre class="brush: js">
+                    $( "#movieTemplate" ).render( movies )
+                </pre>
+                <b>output</b>
+
+                <script id="movieTemplate" type="text/x-jsrender">
+                    <div>
+                        {{:#index+1}}: <b>{{>name}}</b> ({{>releaseYear}})
+                    </div>
+                    </script>
+                    <div id="movieList"></div>
+
+
+                    <script type="text/javascript">
+
+                        var movies = [
+                            { name: "The Red Violin", releaseYear: "1998" },
+                            { name: "Eyes Wide Shut", releaseYear: "1999" },
+                            { name: "The Inheritance", releaseYear: "1976" }
+                        ];
+
+                        // Render the template with the movies data and insert
+                        // the rendered HTML under the "movieList" element
+                        $( "#movieList" ).html(
+                        $( "#movieTemplate" ).render( movies )
+                    );
+
+                    </script>
+                </div>
+                <!--            <div class="step slide" data-x="0" data-y="-1500">
+                                <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
+                            </div>
+                
+                            <div class="step slide" data-x="1000" data-y="-1500">
+                                <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+                            </div>
                 
                 
-            </div>
-            <!--            <div class="step slide" data-x="0" data-y="-1500">
-                            <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-                        </div>
-            
-                        <div class="step slide" data-x="1000" data-y="-1500">
-                            <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
-                        </div>
-            
-            
-                        <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-                            <span class="try">then you should try</span>
-                            <h1>impress.js<sup>*</sup></h1>
-                            <span class="footnote"><sup>*</sup> no rhyme intended</span>
-                        </div>
-            
-                        <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-                            <p>It's a <strong>presentation tool</strong> <br/>
-                                inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-                                and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
-                        </div>
-            
-                        <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-                            <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
-                        </div>
-            
-            
-                        <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-                            <p>and <b>tiny</b> ideas</p>
-                        </div>
-            
-            
-                        <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-                            <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
-                        </div>
-            
-                        <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-                            <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-                        </div>
-            
-                        <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-                            <p>want to know more?</p>
-                            <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
-                        </div>
-            
-                        <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-                            <p>one more thing...</p>
-                        </div>
-            
-            
-                        <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-                            <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-                            <span class="footnote">* beat that, prezi ;)</span>
-                        </div>-->
+                            <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+                                <span class="try">then you should try</span>
+                                <h1>impress.js<sup>*</sup></h1>
+                                <span class="footnote"><sup>*</sup> no rhyme intended</span>
+                            </div>
+                
+                            <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+                                <p>It's a <strong>presentation tool</strong> <br/>
+                                    inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
+                                    and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+                            </div>
+                
+                            <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+                                <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+                            </div>
+                
+                
+                            <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+                                <p>and <b>tiny</b> ideas</p>
+                            </div>
+                
+                
+                            <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+                                <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
+                            </div>
+                
+                            <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+                                <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+                            </div>
+                
+                            <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+                                <p>want to know more?</p>
+                                <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+                            </div>
+                
+                            <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+                                <p>one more thing...</p>
+                            </div>
+                
+                
+                            <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+                                <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
+                                <span class="footnote">* beat that, prezi ;)</span>
+                            </div>-->
 
 
-            <div id="overview" class="step" data-x="-2000" data-y="0" data-scale="15">
+                <div id="overview" class="step" data-x="-2000" data-y="0" data-scale="45">
+                </div>
+
             </div>
 
-        </div>
+
+            <div class="hint">
+                <p>Use a spacebar or arrow keys to navigate</p>
+            </div>
+            <script>
+                if ("ontouchstart" in document.documentElement) { 
+                    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+                }
+            </script>
 
 
-        <div class="hint">
-            <p>Use a spacebar or arrow keys to navigate</p>
-        </div>
-        <script>
-            if ("ontouchstart" in document.documentElement) { 
-                document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-            }
-        </script>
-
-
-        <script src="js/impress.js"></script>
-        <script>impress().init();</script>
-
-
-    </body>
-</html>
+            <script src="js/impress.js"></script>
+            <script>impress().init();</script>
+            <script type="text/javascript">
+                SyntaxHighlighter.all()
+            </script>
+        </body>
+    </html>
 
 
