@@ -697,7 +697,7 @@ a:focus {
 .code-mini {
     font-size: 12px;
 }
-.code .header{
+.code .header, .code-mini .header{
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;

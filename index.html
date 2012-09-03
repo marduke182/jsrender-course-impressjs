@@ -233,120 +233,363 @@
                                     {{:#index+1}}: <b>{{>name}}</b> ({{>releaseYear}})
                                 </div>
                             </script>
-                        </pre>
-                        
-                        <b>Compile</b>
-                        <pre class="brush: js">
+                            </pre>
+
+                            <b>Compile</b>
+                            <pre class="brush: js">
                             /* Compile markup as named templates */
                             $.templates({
                                     titleTemplate: "<tr><td colspan=3>{{>name}}</td></tr>",
                                     detailTemplate: "#idTemplate"
                             });
-                        </pre>
-                    </div>
+                            </pre>
+                        </div>
 
-                    <div id="objects" class="step list" data-x="-9600" data-y="-4600" data-scale="0.3">
-                        <span class="header">Objetos</span>
-                        <br>
-                        <ul>
-                            <li>Se puede usar cualquier objeto que cumpla con el estandar <b>JSON</b>.</li>
-                            <li>Los datos de entrada pueden ser o un arreglo de <b>JSON</b> o objetos <b>JSON</b>.</li>
-                        </ul>
-                        
-                    </div>
-            
-                    <div id="objects-ejemplo1" class="step code" data-x="-9650" data-y="-4505" data-scale="0.1">
-                        <span class="header">Ejemplo Array</span>
-                        <br>
-                        <b>Template</b>
-                        <pre class="brush: xml">
+                        <div id="objects" class="step list" data-x="-9600" data-y="-4600" data-scale="0.3">
+                            <span class="header">Objetos</span>
+                            <br>
+                            <ul>
+                                <li>Se puede usar cualquier objeto que cumpla con el estandar <b>JSON</b>.</li>
+                                <li>Los datos de entrada pueden ser o un arreglo de <b>JSON</b> o objetos <b>JSON</b>.</li>
+                            </ul>
+
+                        </div>
+
+                        <div id="objects-ejemplo1" class="step code" data-x="-9650" data-y="-4505" data-scale="0.1">
+                            <span class="header">Ejemplo Array</span>
+                            <br>
+                            <b>Template</b>
+                            <pre class="brush: xml">
                             <script id="movieTemplate" type="text/x-jsrender">
                                 <div>
                                     {{:#index+1}}: <b>{{:name}}</b> ({{:releaseYear}})
                                 </div>
                             </script>
-                        </pre>
-                        <b>Array JSON</b>
-                        <pre class="brush: js">
+                                </pre>
+                                <b>Array JSON</b>
+                                <pre class="brush: js">
                             [
                                     { name: "The Red Violin", releaseYear: "1998" },
                                     { name: "Eyes Wide Shut", releaseYear: "1999" },
                                     { name: "The Inheritance", releaseYear: "1976" }
                             ];        
-                        </pre>
-                        <p>Como es un arreglo el itera sobre el template autmaticamente. Por cada elemento del arreglo.</p><br>
-                        <b>Resultado</b>
-                        <div id="movieList2"></div>
+                                </pre>
+                                <p>Como es un arreglo el itera sobre el template autmaticamente. Por cada elemento del arreglo.</p><br>
+                                <b>Resultado</b>
+                                <div id="movieList2"></div>
 
-                        
-                    </div>
-                        
-                    <div id="objects-ejemplo2" class="step code" data-x="-9550" data-y="-4525" data-scale="0.1">
-                        <span class="header">Ejemplo <b>JSON</b></span>
-                        <br><br>
-                        
-                        <p>
-                            Usando el mismo template anterior. Pero cambiando la data
-                        </p>
-                        <pre class="brush: js">
+
+                            </div>
+
+                            <div id="objects-ejemplo2" class="step code" data-x="-9550" data-y="-4525" data-scale="0.1">
+                                <span class="header">Ejemplo <b>JSON</b></span>
+                                <br><br>
+
+                                <p>
+                                    Usando el mismo template anterior. Pero cambiando la data
+                                </p>
+                                <pre class="brush: js">
                                     { name: "The Red Violin", releaseYear: "1998" }
-                        </pre>
-                        
-                        <b>Resultado</b>
-                        <div id="movieList3"></div>
-                        <br>
-                        <p>PD: El NaN se genera porque el valor #index no existe si no es un arreglo.</p>
+                                </pre>
 
-                    </div>
+                                <b>Resultado</b>
+                                <div id="movieList3"></div>
+                                <br>
+                                <p>PD: El NaN se genera porque el valor #index no existe si no es un arreglo.</p>
 
-                    <div id="if" class="step list" data-x="-8140" data-y="-4800" data-scale="0.3" data-rotate="-180">
-                        <span class="header">Ejemplo de if</span>
-                        <br>
+                            </div>
 
-                    </div>
+                            <div id="if" class="step list" data-x="-8140" data-y="-4800" data-scale="0.3" data-rotate="-180">
+                                <span class="header">Ejemplo de if</span>
+                                <br>
 
-                    <div id="for" class="step list" data-x="-6800" data-y="-4800" data-scale="0.5" data-rotate="-180">
-                        <span class="header">Ejemplo de for</span>
-                        <br>
-                    </div>
+                            </div>
 
-                    <div id="tags" class="step list" data-x="-5300" data-y="-4800" data-scale="0.5" data-rotate="-90">
-                        <span class="header">Ejemplo de tags</span>
-                        <br>
+                            <div id="for" class="step list" data-x="-6800" data-y="-4800" data-scale="0.5" data-rotate="-180">
+                                <span class="header">Ejemplo de for</span>
+                                <br>
+                            </div>
 
-                    </div>
+                            <div id="tags" class="step list" data-x="-5300" data-y="-4800" data-scale="0.5" data-rotate="-90">
+                                <span class="header">Ejemplo de tags</span>
+                                <br>
 
-                    <div id="helper" class="step list" data-x="-3150" data-y="-4800" data-scale="0.5">
-                        <span class="header">Ejemplo de helper</span>
-                        <br>
+                            </div>
 
-                    </div>
+                            <div id="helper" class="step list" data-x="-3150" data-y="-4800" data-scale="0.5">
+                                <span class="header">Ejemplo de helper</span>
+                                <br>
 
-                    <div id="jsview" class="step list" data-x="-1950" data-y="-4800" data-scale="0.5">
-                        <span class="header">Explicación jsview</span>
-                        <br>
-                    </div>
+                            </div>
 
-                    <div id="linking" class="step list" data-x="-550" data-y="-4800" data-scale="0.5">
-                        <span class="header">Enlace de datos</span>
-                        <br>
-                    </div>
+                            <div id="jsview" class="step list" data-x="-1950" data-y="-4800" data-scale="0.5">
+                                <p class="header">jsView, una herramienta de utilidad.</p>
+                                <br>
+                                <ul>
+                                    <li>Permite precompilar los template</li>
+                                    <li>Es el que permite que los <b>Helper</b>, <b>Tags</b> y <b>Convertes</b> funcione.</li>
+                                    <li>Permite unir los JSON, junto al template.</li>
+                                </ul>
+                            </div>
 
-                    <div id="change_template" class="step list" data-x="-10200" data-y="-1200" data-scale="0.5">
-                        <span class="header">Cambio de templates</span>
-                        <br>
-                    </div>
+                            <div id="linking" class="step list" data-x="-550" data-y="-5200" data-scale="0.05">
+                                <p class="header">Enlace de datos</p>
+                                <br>
+                                <p>Lo que realmente diferencía a jsRender</p>
+                                <ul>
+                                    <li>jQuery Observable (Magía, LSD Coder, ...)</li>
+                                    <li>Auto Update de la interfaz</li>
+                                    <li>Cambias el <b>JSON</    b> y todo lo demas dejalo en mano de la magía oscura.</li>
+                                </ul>
 
-                    <div id="top_level_link" class="step list" data-x="-5800" data-y="-300" data-scale="0.5">
-                        <span class="header">Enlazando paginas sin template</span>
-                        <br>
-                    </div>
+                            </div>
+            
+                            <div id="linking2" class="step code" data-x="-550" data-y="-4500" data-scale="0.5">
+                                <p class="header">Enlace de datos</p>
+                                <br>
+                                <b>Codigo</b>
+                                <pre class="brush: js">
+                                    var counter = 0,
+                                           
+                                    $.templates({
+                                            movieTemplate: "#movieTemplate",
+                                            textOnlyTemplate: "#textOnlyTemplate"
+                                    });
 
-                    <div id="link_form1" class="step code-mini" data-x="-1450" data-y="0" data-scale="0.5">
-                        <span class="header">Enlazando formularios</span>
-                        <br>
-                        <b>El Template</b>
-                        <pre class="brush: xml">
+                                    $.link.textOnlyTemplate( "#linkedListPlaceholder", movies, { target: "replace" });
+
+                                    $.link.movieTemplate( "#linkedListContainer", movies );
+
+                                    function addMovie() {
+                                            $.observable( movies ).insert( movies.length, {
+                                                    name: "NewTitle" + counter++,
+                                                    releaseYear: "YYYY"
+                                            });
+                                    }
+
+                                    function removeMovie() {
+                                            $.observable( movies ).remove( movies.length - 1, 1 );
+                                    }
+                                </pre>
+
+                            </div>
+            
+                            <div id="linking3" class="step code" data-x="-550" data-y="-4800" data-scale="0.5">
+                                <p class="header">Enlace de datos</p>
+                                <br>
+                                <div class="buttons">
+                                        <button onclick="addMovie()">add Movie</button>
+                                        <button onclick="removeMovie()">remove last Movie</button>
+                                </div>
+                                <div class="box">
+                                        <b>Our Movies</b><br />The current movies are <span id="linkedListPlaceholderDemo"></span> ... <em>more to follow!</em>
+                                </div>
+
+                                <div class="subhead">Use JsViews to link content of an HTML container element directly to data, by associating with a template.</div>
+                                <div class="box">
+                                        <ul id="linkedListContainerDemo"></ul>
+                                </div>
+                            </div>
+
+                            <div id="change_template1" class="step code" data-x="-10200" data-y="-1200" data-scale="0.5">
+                                <p class="header">Cambio de templates</p>
+                                <br>
+                                <b>En este caso vamos a crear un acordion, usando dos templates</b>
+                                <pre class="brush: xml">
+                                    <script id="summaryTemplateDemo" type="text/x-jsrender">
+                                            <tr class='movieSummary'><td>
+                                                    {{>title}}
+                                            </td></tr>
+                                    </script>
+
+                                    <script id="detailTemplateDemo" type="text/x-jsrender">
+                                            <tr class='movieDetail row1'><td>
+                                                    {{>title}}
+                                            </td></tr>
+                                            <tr class='movieDetail row2'><td><b>Languages:</b>
+                                                    {{for languages}}
+                                                            <div>
+                                                                    <em>{{>name}}</em>
+                                                            </div>
+                                                    {{/for}}
+                                            </td></tr>
+                                    </script>
+                                </pre>
+                            </div>
+            
+                            <div id="change_template2" class="step code-mini" data-x="-10200" data-y="-1000" data-scale="0.05">
+                                <p class="header">Cambio de templates</p>
+                                <br>
+                                <b>Codigo</b>
+                                <pre class="brush: js">
+                    var selectedSubView = null,
+
+                                    $.templates({
+                                            detailTemplate: "#detailTemplate",
+                                            summaryTemplate: "#summaryTemplate"
+                                    });
+
+                            function unselect() {
+                                    /* Switch template of the selected view back to the summary template */
+                                    if ( selectedSubView ) {
+                                            selectedSubView.tmpl = "summaryTemplate";
+                                            selectedSubView.refresh();
+                                            selectedSubView = null;
+                                    }
+                            }
+
+                            /* Render the movies array as data-linked content under the movieList <ul>, using the summaryTemplate */
+                            $.link.summaryTemplate( "#movieList", movies )
+
+                                    /* onclick handler for movie subviews when not selected */
+                                    .on( "click", ".movieSummary", function() {
+                                            /* Unselect the currently selected view */
+                                            unselect();
+
+                                            /* Get the view which this clicked element
+                                            belongs to, and make it the selected view */
+                                            selectedSubView = $.view(this);
+
+                                            /* Switch the template on this view to the detail template */
+                                            selectedSubView.tmpl = "detailTemplate";
+                                            selectedSubView.refresh();
+                                    })
+
+                                    /* onclick handler for movie subviews when selected */
+                                    .on( "click", ".movieDetail", function() {
+                                            /* Unselect the currently selected view */
+                                            unselect();
+                                    });
+                                </pre>
+                            </div>
+            
+                            <div id="change_template3" class="step code" data-x="-10200" data-y="-800" data-scale="0.05">
+                                <p class="header">Cambio de templates</p>
+                                <br>
+                                <b>Resultado</b>
+                                <table><tbody id="movieListChangeTemplates"></tbody></table>
+
+                            </div>
+            
+                            <div id="top_level_link1" class="step code" data-x="-5800" data-y="-300" data-scale="0.5">
+                                <p class="header">Enlazando paginas sin template</p>
+                                <p>Imaginemos que tenemos una pagína ya creada de forma nomal.</p>
+                                <b>Pagina HTML</b>
+                                <pre class="brush: xml">
+                                    <div class="subhead">Linking to data values and expressions</div>
+
+                                    <p data-link="css-background-color{:roleColor}">
+                                        Name: <span data-link="firstName"></span> <span data-link="lastName"></span>
+                                    </p>
+
+                                    <p>
+                                        <input data-link="firstName" />
+                                        <input data-link="{:lastName:} title{:~infoSummary(firstName, lastName, address.city, cars.quantity)}" />
+                                        <input data-link="address.city" />
+                                        <input data-link="{upper:roleColor:}" />
+                                    </p>
+
+                                    <p>Cars:
+                                        <em>Quantity</em> <input data-link="cars.quantity" />
+                                        <em>Price</em> <input data-link="cars.price" />
+                                        <em>Total Value:</em> <span data-link="cars.quantity * cars.price"></span>
+                                    </p>
+
+                                    <p>
+                                        <span data-link="html{:~infoSummary(firstName, lastName, address.city, cars.quantity, true)}"></span>
+                                    </p>
+                                </pre>
+                            </div>
+                            <div id="top_level_link2" class="step code-mini" data-x="-5800" data-y="200" data-scale="0.5">
+                                <p class="header">Enlazando paginas sin template</p>
+                                <b>Usando jsViews podemos darle vida a la pagína. Codigo:</b>
+                                <pre class="brush: js">
+                                    var person = {
+                                        firstName: "Jo",
+                                        lastName: "Proctor",
+                                        cars: {
+                                            quantity:13,
+                                            price: 150
+                                        },
+                                        address: {
+                                            city: "Redmond"
+                                        },
+                                        roleColor: "yellow"
+                                    };
+
+                                    function setNameAndCityAndColorAndCars() {
+                                        $.observable( person )
+                                        .setProperty({
+                                            "cars.quantity": person.cars.quantity+1,
+                                            "cars.price": person.cars.price-3,
+                                            lastName: person.lastName + "Plus",
+                                            "address.city": person.address.city + "More",
+                                            roleColor: (person.roleColor === "yellow" ? "#8DD" : "yellow")
+                                        });
+                                    }
+
+                                    function setCity() {
+                                        $.observable( person ).setProperty( "address.city", person.address.city + "Add" );
+                                        // This will also work:
+                                        //		$.observable( person.address ).setProperty( "city", person.address.city + "Add" );
+                                    }
+
+                                    $.views.helpers({
+                                        infoSummary: function( firstName, lastName, city, cars, html ) {
+                                            return html
+                                                ? ("<b>" + firstName + " " + lastName + "</b> lives in <i>" + city +  "</i> and owns " + cars + " cars.")
+                                            : (firstName + " " + lastName + " lives in " + city + " and owns " + cars + " cars.");
+                                        }
+                                    });
+
+                                    $.views.converters({
+                                        upper: function( val ) {
+                                            return val.toUpperCase();
+                                        }
+                                    });
+
+                                    // Calling link on an element, with first parameter 'true' link the contents of the element.
+                                    $("#myLinkedContentDemo").link( true, person );
+                                </pre>
+                            </div>
+                            <div id="top_level_link3" class="step code" data-x="-5800" data-y="500" data-scale="0.5">
+                                <p class="header">Enlazando paginas sin template</p>
+                                <br>
+                                <div class="buttons">
+                                    <button onclick="setNameAndCityAndColorAndCars()">Modify name, city, color and cars</button>
+                                    <button onclick="setCity()">Modify city</button>
+                                </div>  
+                                <div id="myLinkedContentDemo">
+                                    <div class="subhead">Linking to data values and expressions</div>
+
+                                    <p data-link="css-background-color{:roleColor}">
+                                        Name: <span data-link="firstName"></span> <span data-link="lastName"></span>
+                                    </p>
+
+                                    <p>
+                                        <input data-link="firstName" />
+                                        <input data-link="{:lastName:} title{:~infoSummary(firstName, lastName, address.city, cars.quantity)}" />
+                                        <input data-link="address.city" />
+                                        <input data-link="{upper:roleColor:}" />
+                                    </p>
+
+                                    <p>Cars:
+                                        <em>Quantity</em> <input data-link="cars.quantity" />
+                                        <em>Price</em> <input data-link="cars.price" />
+                                        <em>Total Value:</em> <span data-link="cars.quantity * cars.price"></span>
+                                    </p>
+
+                                    <p>
+                                        <span data-link="html{:~infoSummary(firstName, lastName, address.city, cars.quantity, true)}"></span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div id="link_form1" class="step code-mini" data-x="-1450" data-y="0" data-scale="0.5">
+                                <span class="header">Enlazando formularios</span>
+                                <br>
+                                <b>El Template</b>
+                                <pre class="brush: xml">
                             <script id="idDelTemplateRenderizar" type="text/x-jsrender">
                                 <div class="box">
                                         <div class="subhead">Choose a movie</div>
@@ -377,304 +620,486 @@
                                                 <div>Ticket for <em data-link="name" /> to movie: <em data-link="~selectedTitle(selectedMovie)" /></div>
                                                 <div data-link="visible{:request}"><em>Your special request:</em> <pre data-link="request" ></pre></div>
                                                 <div>
-                                                        <b>Ticket Price:</b> <span data-link="~convertedPrice(selectedMovie, currency)" />
+                                                    <b>Ticket Price:</b> <span data-link="~convertedPrice(selectedMovie, currency)" />
                                                 </div>
                                                 <div>
-                                                        <button id="submitOrder">Submit order</button>
+                                                    <button id="submitOrder">Submit order</button>
                                                 </div>
-                                        </div>
+                                            </div>
 
-                                        <div>Currency Picker: <input type="checkbox" data-link="~app.chooseCurrency" /></div>
+                                            <div>Currency Picker: <input type="checkbox" data-link="~app.chooseCurrency" /></div>
 
-                                        <div class="box" data-link="visible{:~app.chooseCurrency}">
+                                            <div class="box" data-link="visible{:~app.chooseCurrency}">
                                                 <div class="subhead">Choose Currency:</div>
                                                 <input type="radio" name="currencyPicker" value="US" data-link="currency" />US Dollars<br/>
                                                 <input type="radio" name="currencyPicker" value="EUR" data-link="currency" />Euro<br/>
                                                 <input type="radio" name="currencyPicker" value="GBP" data-link="currency" />Pound<br/>
-                                        </div>
+                                            </div>
 
+                                        </div>
+                                        </script>   
+                                    </pre>
                                 </div>
-                            </script>   
-                        </pre>
-                    </div>
-                    <div id="link_form2" class="step code" data-x="-1400" data-y="500" data-scale="0.5">
-                        <span class="header">El Codigo</span>
-                        <br>
-                        <pre class="brush: js">
+                                <div id="link_form2" class="step code-mini" data-x="-1400" data-y="500" data-scale="0.5">
+                                    <span class="header">El Codigo</span>
+                                    <br>
+                                    <pre class="brush: js">
                                             var currencies = {
                                 US: { rate: 1.0, symbol: "$" },
                                 EUR: { rate: 0.95, symbol: "€" },
                                 GBP: { rate: 0.63, symbol: "£" }
-                        },
+                                    },
 
-                        orderDetails = {
-                                name: "",
-                                selectedMovie: "none",
-                                currency: "US",
-                                request: ""
-                        },
+                                    orderDetails = {
+                                            name: "",
+                                            selectedMovie: "none",
+                                            currency: "US",
+                                            request: ""
+                                    },
 
-                        movies = [
-                                {
+                                    movies = [
+                                            {
+                                                    title: "The Red Violin",
+                                                    ticketPrice: 18
+                                            },
+                                            {
+                                                    title: "The Inheritance",
+                                                    ticketPrice: 16.5
+                                            },
+                                            {
+                                                    title: "The Incredible Hulk",
+                                                    ticketPrice: 21.99
+                                            }
+                                    ],
+
+                                    contextHelpers = {
+                                            app: {},
+                                            movies: movies,
+                                            convertedPrice: function(index, curCode) {
+                                                    var currency = currencies[curCode];
+                                                    if ( index >= 0) {
+                                                            return currency.symbol + parseFloat(movies[index].ticketPrice * currency.rate).toFixed(2);
+                                                    }
+                                            },
+                                            currencies: currencies,
+                                            selectedTitle: function(selectedMovie) {
+                                                    return (selectedMovie!=="none") ? movies[selectedMovie].title : "";
+                                            },
+                                            and: function(a, b) {
+                                                    return !!a && !!b;
+                                            }
+                                    };
+
+                                    $.templates( "moviePurchaseTemplate", "#moviePurchaseTemplate" );
+
+                                    $.link.moviePurchaseTemplate( "#moviePurchase", orderDetails, contextHelpers );
+
+                                    $( "#submitOrder" ).on( "click", function() {
+                                            alert("You ordered a movie ticket as follows:\n" + (window.JSON ? JSON.stringify(orderDetails, null, 1).slice(1,-1) : orderDetails.selectedMovie));
+                                    });
+
+                                    </pre>
+                                </div>
+
+                                <div id="link_form3" class="step code" data-x="-1400" data-y="1000" data-scale="0.5">
+                                    <span class="header">Enlazando formularios</span>
+                                    <br>
+                                    <div id="moviePurchase"></div>
+
+                                </div>
+
+                                <!--            <div class="step slide" data-x="0" data-y="-1500">
+                                                <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
+                                            </div>
+                                
+                                            <div class="step slide" data-x="1000" data-y="-1500">
+                                                <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+                                            </div>
+                                
+                                
+                                            <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+                                                <span class="try">then you should try</span>
+                                                <h1>impress.js<sup>*</sup></h1>
+                                                <span class="footnote"><sup>*</sup> no rhyme intended</span>
+                                            </div>
+                                
+                                            <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+                                                <p>It's a <strong>presentation tool</strong> <br/>
+                                                    inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
+                                                    and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+                                            </div>
+                                
+                                            <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+                                                <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+                                            </div>
+                                
+                                
+                                            <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+                                                <p>and <b>tiny</b> ideas</p>
+                                            </div>
+                                
+                                
+                                            <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+                                                <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
+                                            </div>
+                                
+                                            <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+                                                <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+                                            </div>
+                                
+                                            <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+                                                <p>want to know more?</p>
+                                                <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+                                            </div>
+                                
+                                            <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+                                                <p>one more thing...</p>
+                                            </div>
+                                
+                                
+                                            <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+                                                <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
+                                                <span class="footnote">* beat that, prezi ;)</span>
+                                            </div>-->
+
+
+                                <div id="overview" class="step" data-x="-2000" data-y="0" data-scale="45">
+                                </div>
+
+                            </div>
+
+
+                            <div class="hint">
+                                <p>Use a spacebar or arrow keys to navigate</p>
+                            </div>
+                            <script>
+                                if ("ontouchstart" in document.documentElement) { 
+                                    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+                                }
+                            </script>
+
+
+                            <script src="js/impress.js"></script>
+                            <script>impress().init();</script>
+                            <script type="text/javascript">
+                                SyntaxHighlighter.all()
+                            </script>
+                            <script id="moviePurchaseTemplate" type="text/x-jsrender">
+                                <div class="box">
+                                    <div class="subhead">Choose a movie</div>
+
+                                    <select id="selTheater" data-link="selectedMovie">
+                                        <option value="none">Choose...</option>
+                                        {{for ~movies}}
+                                        <option value="{{:#index}}">{{>title}}</option>
+                                        {{/for}}
+                                    </select>
+
+                                    <div data-link="visible{: selectedMovie!=='none' }">
+
+                                        <div class="subhead">Name:</div>
+                                        <div><input data-link="name" /></div>
+
+                                        <div class="subhead">Special requests:</div>
+                                        <div><textarea data-link="request" rows="4" cols="25" /></div>
+
+                                    </div>
+                                </div>
+
+                                <div data-link="visible{: ~and(selectedMovie!=='none', name) }">
+
+                                    <h3>Ticket order form</h3>
+
+                                    <div id="orderForm" class="box" data-link="visible{:name}">
+                                        <div>Ticket for <em data-link="name" /> to movie: <em data-link="~selectedTitle(selectedMovie)" /></div>
+                                        <div data-link="visible{:request}"><em>Your special request:</em> <pre data-link="request" ></pre></div>
+                                        <div>
+                                            <b>Ticket Price:</b> <span data-link="~convertedPrice(selectedMovie, currency)" />
+                                        </div>
+                                        <div>
+                                            <button id="submitOrder">Submit order</button>
+                                        </div>
+                                    </div>
+
+                                    <div>Currency Picker: <input type="checkbox" data-link="~app.chooseCurrency" /></div>
+
+                                    <div class="box" data-link="visible{:~app.chooseCurrency}">
+                                        <div class="subhead">Choose Currency:</div>
+                                        <input type="radio" name="currencyPicker" value="US" data-link="currency" />US Dollars<br/>
+                                        <input type="radio" name="currencyPicker" value="EUR" data-link="currency" />Euro<br/>
+                                        <input type="radio" name="currencyPicker" value="GBP" data-link="currency" />Pound<br/>
+                                    </div>
+
+                                </div>
+                            </script>   
+
+                            <script id="summaryTemplate" type="text/x-jsrender">
+                                    <tr class='movieSummary'><td>
+                                            {{>title}}
+                                    </td></tr>
+                            </script>
+
+                            <script id="detailTemplate" type="text/x-jsrender">
+                                    <tr class='movieDetail row1'><td>
+                                            {{>title}}
+                                    </td></tr>
+                                    <tr class='movieDetail row2'><td><b>Languages:</b>
+                                            {{for languages}}
+                                                    <div>
+                                                            <em>{{>name}}</em>
+                                                    </div>
+                                            {{/for}}
+                                    </td></tr>
+                            </script>
+                            
+                            <script id="movieTemplateDemo2" type="text/x-jsrender">
+                                    <li>
+                                            <i>{{>name}}</i> ({{>releaseYear}})
+                                    </li>
+                            </script>
+
+                            <!--Note that a template does not have to include HTML elements-->
+                            <script id="textOnlyTemplateDemo2" type="text/x-jsrender">
+                                    - {{>name}} ({{>releaseYear}})
+                            </script>
+                            
+                            <script type="text/javascript">
+
+                                /* Ejemplo de la explicacion de jsrender*/
+                                var movies = [
+                                    { name: "The Red Violin", releaseYear: "1998" },
+                                    { name: "Eyes Wide Shut", releaseYear: "1999" },
+                                    { name: "The Inheritance", releaseYear: "1976" }
+                                ];
+                                var movie = { name: "The Red Violin", releaseYear: "1998" };
+
+                                // Render the template with the movies data and insert
+                                // the rendered HTML under the "movieList" element
+                                $( "#movieList" ).html(
+                                $( "#movieTemplate" ).render( movies )
+                            );
+                                $( "#movieList2" ).html(
+                                $( "#movieTemplate" ).render( movies )
+                            );
+                                $( "#movieList3" ).html(
+                                $( "#movieTemplate" ).render( movie )
+                            );
+                                /* TERMINA: Ejemplo de la explicacion de jsrender*/
+
+
+                                /*  Ejemplo de Formularios */
+                                var currencies182 = {
+                                    US: { rate: 1.0, symbol: "$" },
+                                    EUR: { rate: 0.95, symbol: "€" },
+                                    GBP: { rate: 0.63, symbol: "£" }
+                                },
+
+                                orderDetails = {
+                                    name: "",
+                                    selectedMovie: "none",
+                                    currency: "US",
+                                    request: ""
+                                },
+
+                                movies182 = [
+                                    {
                                         title: "The Red Violin",
                                         ticketPrice: 18
-                                },
-                                {
+                                    },
+                                    {
                                         title: "The Inheritance",
                                         ticketPrice: 16.5
-                                },
-                                {
+                                    },
+                                    {
                                         title: "The Incredible Hulk",
                                         ticketPrice: 21.99
-                                }
-                        ],
+                                    }
+                                ],
 
-                        contextHelpers = {
-                                app: {},
-                                movies: movies,
-                                convertedPrice: function(index, curCode) {
-                                        var currency = currencies[curCode];
+                                contextHelpers = {
+                                    app: {},
+                                    movies: movies182,
+                                    convertedPrice: function(index, curCode) {
+                                        var currency = currencies182[curCode];
                                         if ( index >= 0) {
-                                                return currency.symbol + parseFloat(movies[index].ticketPrice * currency.rate).toFixed(2);
+                                            return currency.symbol + parseFloat(movies182[index].ticketPrice * currency.rate).toFixed(2);
                                         }
-                                },
-                                currencies: currencies,
-                                selectedTitle: function(selectedMovie) {
-                                        return (selectedMovie!=="none") ? movies[selectedMovie].title : "";
-                                },
-                                and: function(a, b) {
+                                    },
+                                    currencies: currencies182,
+                                    selectedTitle: function(selectedMovie) {
+                                        return (selectedMovie!=="none") ? movies182[selectedMovie].title : "";
+                                    },
+                                    and: function(a, b) {
                                         return !!a && !!b;
+                                    }
+                                };
+
+                                $.templates( "moviePurchaseTemplate", "#moviePurchaseTemplate" );
+
+                                $.link.moviePurchaseTemplate( "#moviePurchase", orderDetails, contextHelpers );
+
+                                $( "#submitOrder" ).on( "click", function() {
+                                    alert("You ordered a movie ticket as follows:\n" + (window.JSON ? JSON.stringify(orderDetails, null, 1).slice(1,-1) : orderDetails.selectedMovie));
+                                });
+                
+                                /*TERMINO:  Ejemplo de Formularios */
+
+
+                                /*Ejemplo de Data linking sin renderizar template*/
+                                var person182 = {
+                                    firstName: "Jo",
+                                    lastName: "Proctor",
+                                    cars: {
+                                        quantity:13,
+                                        price: 150
+                                    },
+                                    address: {
+                                        city: "Redmond"
+                                    },
+                                    roleColor: "yellow"
+                                };
+
+                                function setNameAndCityAndColorAndCars() {
+                                    $.observable( person182 )
+                                    .setProperty({
+                                        "cars.quantity": person182.cars.quantity+1,
+                                        "cars.price": person182.cars.price-3,
+                                        lastName: person182.lastName + "Plus",
+                                        "address.city": person182.address.city + "More",
+                                        roleColor: (person182.roleColor === "yellow" ? "#8DD" : "yellow")
+                                    });
                                 }
-                        };
 
-                        $.templates( "moviePurchaseTemplate", "#moviePurchaseTemplate" );
-
-                        $.link.moviePurchaseTemplate( "#moviePurchase", orderDetails, contextHelpers );
-
-                        $( "#submitOrder" ).on( "click", function() {
-                                alert("You ordered a movie ticket as follows:\n" + (window.JSON ? JSON.stringify(orderDetails, null, 1).slice(1,-1) : orderDetails.selectedMovie));
-                        });
-                
-                        </pre>
-                    </div>
-            
-                    <div id="link_form3" class="step code" data-x="-1400" data-y="1000" data-scale="0.5">
-                        <span class="header">Enlazando formularios</span>
-                        <br>
-                        <div id="moviePurchase"></div>
-
-                    </div>
-
-                    <!--            <div class="step slide" data-x="0" data-y="-1500">
-                                    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-                                </div>
-                    
-                                <div class="step slide" data-x="1000" data-y="-1500">
-                                    <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
-                                </div>
-                    
-                    
-                                <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-                                    <span class="try">then you should try</span>
-                                    <h1>impress.js<sup>*</sup></h1>
-                                    <span class="footnote"><sup>*</sup> no rhyme intended</span>
-                                </div>
-                    
-                                <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-                                    <p>It's a <strong>presentation tool</strong> <br/>
-                                        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-                                        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
-                                </div>
-                    
-                                <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-                                    <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
-                                </div>
-                    
-                    
-                                <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-                                    <p>and <b>tiny</b> ideas</p>
-                                </div>
-                    
-                    
-                                <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-                                    <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
-                                </div>
-                    
-                                <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-                                    <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-                                </div>
-                    
-                                <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-                                    <p>want to know more?</p>
-                                    <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
-                                </div>
-                    
-                                <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-                                    <p>one more thing...</p>
-                                </div>
-                    
-                    
-                                <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-                                    <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-                                    <span class="footnote">* beat that, prezi ;)</span>
-                                </div>-->
-
-
-                    <div id="overview" class="step" data-x="-2000" data-y="0" data-scale="45">
-                    </div>
-
-                </div>
-
-
-                <div class="hint">
-                    <p>Use a spacebar or arrow keys to navigate</p>
-                </div>
-                <script>
-                    if ("ontouchstart" in document.documentElement) { 
-                        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-                    }
-                </script>
-
-
-                <script src="js/impress.js"></script>
-                <script>impress().init();</script>
-                <script type="text/javascript">
-                    SyntaxHighlighter.all()
-                </script>
-                <script id="moviePurchaseTemplate" type="text/x-jsrender">
-                    <div class="box">
-                            <div class="subhead">Choose a movie</div>
-
-                            <select id="selTheater" data-link="selectedMovie">
-                                    <option value="none">Choose...</option>
-                                    {{for ~movies}}
-                                            <option value="{{:#index}}">{{>title}}</option>
-                                    {{/for}}
-                            </select>
-
-                            <div data-link="visible{: selectedMovie!=='none' }">
-
-                                    <div class="subhead">Name:</div>
-                                    <div><input data-link="name" /></div>
-
-                                    <div class="subhead">Special requests:</div>
-                                    <div><textarea data-link="request" rows="4" cols="25" /></div>
-
-                            </div>
-                    </div>
-
-                    <div data-link="visible{: ~and(selectedMovie!=='none', name) }">
-
-                            <h3>Ticket order form</h3>
-
-                            <div id="orderForm" class="box" data-link="visible{:name}">
-                                    <div>Ticket for <em data-link="name" /> to movie: <em data-link="~selectedTitle(selectedMovie)" /></div>
-                                    <div data-link="visible{:request}"><em>Your special request:</em> <pre data-link="request" ></pre></div>
-                                    <div>
-                                            <b>Ticket Price:</b> <span data-link="~convertedPrice(selectedMovie, currency)" />
-                                    </div>
-                                    <div>
-                                            <button id="submitOrder">Submit order</button>
-                                    </div>
-                            </div>
-
-                            <div>Currency Picker: <input type="checkbox" data-link="~app.chooseCurrency" /></div>
-
-                            <div class="box" data-link="visible{:~app.chooseCurrency}">
-                                    <div class="subhead">Choose Currency:</div>
-                                    <input type="radio" name="currencyPicker" value="US" data-link="currency" />US Dollars<br/>
-                                    <input type="radio" name="currencyPicker" value="EUR" data-link="currency" />Euro<br/>
-                                    <input type="radio" name="currencyPicker" value="GBP" data-link="currency" />Pound<br/>
-                            </div>
-
-                    </div>
-                </script>   
-                
-                <script type="text/javascript">
-
-                /* Ejemplo de la explicacion de jsrender*/
-                    var movies = [
-                        { name: "The Red Violin", releaseYear: "1998" },
-                        { name: "Eyes Wide Shut", releaseYear: "1999" },
-                        { name: "The Inheritance", releaseYear: "1976" }
-                    ];
-                    var movie = { name: "The Red Violin", releaseYear: "1998" };
-
-                    // Render the template with the movies data and insert
-                    // the rendered HTML under the "movieList" element
-                    $( "#movieList" ).html(
-                    $( "#movieTemplate" ).render( movies )
-                );
-                    $( "#movieList2" ).html(
-                    $( "#movieTemplate" ).render( movies )
-                );
-                    $( "#movieList3" ).html(
-                    $( "#movieTemplate" ).render( movie )
-                );
-                /* TERMINA: Ejemplo de la explicacion de jsrender*/
-
-
-                /*  Ejemplo de Formularios */
-                var currencies = {
-                                US: { rate: 1.0, symbol: "$" },
-                                EUR: { rate: 0.95, symbol: "€" },
-                                GBP: { rate: 0.63, symbol: "£" }
-                        },
-
-                orderDetails = {
-                        name: "",
-                        selectedMovie: "none",
-                        currency: "US",
-                        request: ""
-                },
-
-                movies = [
-                        {
-                                title: "The Red Violin",
-                                ticketPrice: 18
-                        },
-                        {
-                                title: "The Inheritance",
-                                ticketPrice: 16.5
-                        },
-                        {
-                                title: "The Incredible Hulk",
-                                ticketPrice: 21.99
-                        }
-                ],
-
-                contextHelpers = {
-                        app: {},
-                        movies: movies,
-                        convertedPrice: function(index, curCode) {
-                                var currency = currencies[curCode];
-                                if ( index >= 0) {
-                                        return currency.symbol + parseFloat(movies[index].ticketPrice * currency.rate).toFixed(2);
+                                function setCity() {
+                                    $.observable( person182 ).setProperty( "address.city", person182.address.city + "Add" );
+                                    // This will also work:
+                                    //		$.observable( person.address ).setProperty( "city", person.address.city + "Add" );
                                 }
-                        },
-                        currencies: currencies,
-                        selectedTitle: function(selectedMovie) {
-                                return (selectedMovie!=="none") ? movies[selectedMovie].title : "";
-                        },
-                        and: function(a, b) {
-                                return !!a && !!b;
+
+                                $.views.helpers({
+                                    infoSummary: function( firstName, lastName, city, cars, html ) {
+                                        return html
+                                            ? ("<b>" + firstName + " " + lastName + "</b> lives in <i>" + city +  "</i> and owns " + cars + " cars.")
+                                        : (firstName + " " + lastName + " lives in " + city + " and owns " + cars + " cars.");
+                                    }
+                                });
+
+                                $.views.converters({
+                                    upper: function( val ) {
+                                        return val.toUpperCase();
+                                    }
+                                });
+
+                                // Calling link on an element, with first parameter 'true' link the contents of the element.
+                                $("#myLinkedContentDemo").link( true, person182 );
+                                /*TERMINO: Ejemplo de Data linking sin renderizar template*/
+                                
+                                
+                                /* Ejemplo para cambiar el template */
+                                
+                                var selectedSubView = null,
+
+                                movies183 = [
+                                        {
+                                                title: "The Red Violin",
+                                                languages: [
+                                                        { name: "English" },
+                                                        { name: "French" }
+                                                ]
+                                        },
+                                        {
+                                                title: "Eyes Wide Shut",
+                                                languages: [
+                                                        { name: "French" },
+                                                        { name: "German" },
+                                                        { name: "Spanish" }
+                                                ]
+                                        },
+                                        {
+                                                title: "The Inheritance",
+                                                releaseYear: "1976",
+                                                languages: [
+                                                        { name: "English" },
+                                                        { name: "Dutch" }
+                                                ]
+                                        }
+                                ];
+
+                                $.templates({
+                                        detailTemplate: "#detailTemplate",
+                                        summaryTemplate: "#summaryTemplate"
+                                });
+
+                        function unselect() {
+                                /* Switch template of the selected view back to the summary template */
+                                if ( selectedSubView ) {
+                                        selectedSubView.tmpl = "summaryTemplate";
+                                        selectedSubView.refresh();
+                                        selectedSubView = null;
+                                }
                         }
-                };
 
-                $.templates( "moviePurchaseTemplate", "#moviePurchaseTemplate" );
+                        /* Render the movies array as data-linked content under the movieList <ul>, using the summaryTemplate */
+                        $.link.summaryTemplate( "#movieListChangeTemplates", movies183 )
 
-                $.link.moviePurchaseTemplate( "#moviePurchase", orderDetails, contextHelpers );
+                                /* onclick handler for movie subviews when not selected */
+                                .on( "click", ".movieSummary", function() {
+                                        /* Unselect the currently selected view */
+                                        unselect();
 
-                $( "#submitOrder" ).on( "click", function() {
-                        alert("You ordered a movie ticket as follows:\n" + (window.JSON ? JSON.stringify(orderDetails, null, 1).slice(1,-1) : orderDetails.selectedMovie));
-                });
-                
-                /*TERMINO:  Ejemplo de Formularios */
+                                        /* Get the view which this clicked element
+                                        belongs to, and make it the selected view */
+                                        selectedSubView = $.view(this);
 
-                </script>
-                
-                
-            </body>
-        </html>
+                                        /* Switch the template on this view to the detail template */
+                                        selectedSubView.tmpl = "detailTemplate";
+                                        selectedSubView.refresh();
+                                })
+
+                                /* onclick handler for movie subviews when selected */
+                                .on( "click", ".movieDetail", function() {
+                                        /* Unselect the currently selected view */
+                                        unselect();
+                                });
+                                /* TERMINO: Ejemplo para cambiar el template */
+
+                                /* Ejemplo de datos enlazados */
+
+                                var counter = 0,
+                                movies201 = [
+                                        { name: "The Red Violin", releaseYear: "1998" },
+                                        { name: "Eyes Wide Shut", releaseYear: "1999" },
+                                        { name: "The Inheritance", releaseYear: "1976" }
+                                ];
+
+                                // JsRender: Render the template with the movies data and insert
+                                // the rendered HTML under the "movieList" element
+                                $.templates({
+                                        movieTemplateDemo2: "#movieTemplateDemo2",
+                                        textOnlyTemplateDemo2: "#textOnlyTemplateDemo2"
+                                });
+
+
+                                $.link.textOnlyTemplateDemo2( "#linkedListPlaceholderDemo", movies201, { target: "replace" });
+
+
+                                $.link.movieTemplateDemo2( "#linkedListContainerDemo", movies201 );
+
+                                // Modify the data
+                                function addMovie() {
+                                        $.observable( movies201 ).insert( movies201.length, {
+                                                name: "NewTitle" + counter++,
+                                                releaseYear: "YYYY"
+                                        });
+                                }
+
+                                function removeMovie() {
+                                        $.observable( movies201 ).remove( movies201.length - 1, 1 );
+                                }
+                            </script>
+
+
+                        </body>
+                    </html>
 
 
