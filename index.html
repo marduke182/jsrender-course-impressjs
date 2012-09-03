@@ -299,7 +299,7 @@
 
                     </div>
 
-                    <div id="if" class="step code-mini"  data-x="-8140" data-y="-4800" data-scale="0.1" data-rotate="-180">
+                    <div id="if" class="step step-large code-medium"  data-x="-8140" data-y="-4800" data-scale="0.1" data-rotate="-180">
                         <span class="header">Ejemplo de if</span>
                         <br>
                         <b>Template</b>
@@ -321,7 +321,7 @@
                         </pre>
                         <b>Array JSON</b>
                         <pre class="brush: js">
-                            [
+                            var ifmovies = [
                                 {
                                     title: "Meet Joe Black",
                                     languages: "English and French",
@@ -340,10 +340,20 @@
                                 }
                             ];
                         </pre>
-                        <p>Como es un arreglo el itera sobre el template autmaticamente. Por cada elemento del arreglo.</p><br>
+
+                    </div>
+                    <div id="if2" class="step code"  data-x="-8540" data-y="-4800" data-scale="0.1" data-rotate="-90">
+                        <span class="header">Ejemplo de if (continuaci&oacute;n)</span>
+                        <br>
+                        <b>C&oacute;digo para aplicar plantilla:</b>
+                        <pre class="brush: js">
+                            $( "#example-if" ).html(
+                                $( "#if-movieTemplate" ).render( ifmovies )
+                            );
+                        </pre>
                         <b>Resultado</b>
                         <div>
-                            <table>
+                            <table class="mitabla">
                                     <thead><tr><th>title</th><th>languages</th></tr></thead>
                                     <tbody id="example-if"></tbody>
                             </table>
@@ -371,20 +381,129 @@
                                 $( "#example-if" ).html(
                                         $( "#if-movieTemplate" ).render( ifmovies )
                                 );
-
                         </script>
-
                     </div>
 
-                    <div id="for" class="step list" data-x="-6800" data-y="-4800" data-scale="0.5" data-rotate="-180">
+                    <div id="for" class="step code-medium" data-x="-6800" data-y="-4800" data-scale="0.1" data-rotate="-180">
                         <span class="header">Ejemplo de for</span>
                         <br>
+                        <b>Template</b>
+                        <pre class="brush: xml">
+                            <script id="for-template" type="text/x-jsrender">
+                                <li>
+                                    <h2>{{>title}}</h2>
+                                    <ul>
+                                        {{for languages}}
+                                            <li>{{>name}}</li>
+                                        {{/for}}
+                                    </ul>
+                                </li>
+                            </script>
+                        </pre>
+                        <b>Array JSON</b>
+                        <pre class="brush: js">
+                            var formovies = [
+                                {
+                                    title: "Meet Joe Black",
+                                    languages: [
+                                        { name: "English" },
+                                        { name: "French" }
+                                    ]
+                                },
+                                {
+                                    title: "Eyes Wide Shut",
+                                    languages: [
+                                        { name: "French" },
+                                        { name: "Mandarin" },
+                                        { name: "Spanish" }
+                                    ]
+                                },
+                                {
+                                    title: "The Inheritance",
+                                    languages: [
+                                        { name: "English" },
+                                        { name: "German" }
+                                    ]
+                                }
+                            ];
+                        </pre>
+                    </div>
+            
+                <div id="for2" class="step code" data-x="-6950" data-y="-4800" data-scale="0.1" data-rotate="-180">
+                        <span class="header">Ejemplo de for (continuaci&oacute;n)</span>
+                        <br>
+                        <b>C&oacute;digo para aplicar plantilla:</b>
+                        <pre class="brush: js">
+                            $( "#example-for" ).html(
+                                $( "#for-template" ).render( formovies )
+                            );
+                        </pre>
+                        <b>Resultado</b>
+                        <ol id="example-for" class="ol"></ol>
+                        <script type="text/javascript">
+                            var formovies = [
+                                    {
+                                            title: "Meet Joe Black",
+                                            languages: [
+                                                    { name: "English" },
+                                                    { name: "French" }
+                                            ]
+                                    },
+                                    {
+                                            title: "Eyes Wide Shut",
+                                            languages: [
+                                                    { name: "French" },
+                                                    { name: "Mandarin" },
+                                                    { name: "Spanish" }
+                                            ]
+                                    },
+                                    {
+                                            title: "The Inheritance",
+                                            languages: [
+                                                    { name: "English" },
+                                                    { name: "German" }
+                                            ]
+                                    }
+                            ];
+
+                            $( "#example-for" ).html(
+                                    $( "#for-template" ).render( formovies )
+                            );
+                    </script>
                     </div>
 
-                    <div id="tags" class="step list" data-x="-5300" data-y="-4800" data-scale="0.5" data-rotate="-90">
-                        <span class="header">Ejemplo de tags</span>
+                    <div id="tags" class="step list code" data-x="-5300" data-y="-4800" data-scale="0.5" data-rotate="-90">
+                        <span class="header">Custom Tags</span>
                         <br>
-
+                        <p>
+                            As&iacute; como existen las etiquetas {{if}} y {{for}}, es posible crear etiquetas personalizadas que
+                            procesen la información antes del renderizado.
+                        </p>
+                        <ul>
+                            <li>Son poco comunes</li>
+                            <li>Pueden usarse <i>helpers</i> como alternativa</li>
+                        </ul>
+                        <pre class="brush: xml">
+                            <div>{{sort languages reverse=true}}...{{/sort}}</div>
+                        </pre>
+                        <pre class="brush: js">
+                            $.views.tags({
+                                // Tag to reverse-sort an array
+                                sort: function( array ) {
+                                    var ret = "";
+                                    if ( this.props.reverse ) {
+                                        // Render in reverse order
+                                        for ( var i = array.length; i; i-- ) {
+                                            ret += this.renderContent( array[ i - 1 ] );
+                                        }
+                                    } else {
+                                        // Render in original order
+                                        ret += this.renderContent( array );
+                                    }
+                                    return ret;
+                                }
+                        });
+                        </pre>
                     </div>
 
                     <div id="helper" class="step list" data-x="-3150" data-y="-4800" data-scale="0.5">
