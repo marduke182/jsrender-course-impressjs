@@ -33,7 +33,7 @@
 
         <div id="impress">
 
-            <div id="title" class="step" data-x="0" data-y="0" data-scale="40">
+            <div id="title" class="step" data-x="0" data-y="0" data-scale="40" >
                 <span class="try">Creando con</span>
                 <h1>jsRender
                     <!--                    <sup>*</sup>-->
@@ -41,7 +41,7 @@
                 <!--                <span class="footnote"><sup>*</sup> no rhyme intended</span>-->
             </div>
 
-            <div id="need" class="step list" data-x="-13400" data-y="-5000" data-rotate="-90" >
+            <div id="need" class="step list" data-x="-13400" data-y="-5000" data-rotate="-90">
                 <span class="header">¿La necesidad?</span>
                 <br>
                 <ul>
@@ -182,7 +182,7 @@
 
                 <script id="movieTemplate" type="text/x-jsrender">
                     <div>
-                        {{:#index+1}}: <b>{{>name}}</b> ({{>releaseYear}})
+                        {{:#index+1}}: <b>{{:name}}</b> ({{:releaseYear}})
                     </div>
                 </script>
 
@@ -195,27 +195,13 @@
 
                     <script id="movieTemplate" type="text/x-jsrender">
                         <div>
-                            {{:#index+1}}: <b>{{>name}}</b> ({{>releaseYear}})
+                            {{:#index+1}}: <b>{{:name}}</b> ({{:releaseYear}})
                         </div>
                         </script>
                         <div id="movieList"></div>
 
 
-                        <script type="text/javascript">
 
-                            var movies = [
-                                { name: "The Red Violin", releaseYear: "1998" },
-                                { name: "Eyes Wide Shut", releaseYear: "1999" },
-                                { name: "The Inheritance", releaseYear: "1976" }
-                            ];
-
-                            // Render the template with the movies data and insert
-                            // the rendered HTML under the "movieList" element
-                            $( "#movieList" ).html(
-                            $( "#movieTemplate" ).render( movies )
-                        );
-
-                        </script>
                     </div>
 
                     <div id="ventajas" class="step list" data-x="-10800" data-y="-5000" data-scale="0.1" data-rotate="-90">
@@ -230,18 +216,88 @@
                         </ul>
                     </div>
 
-                    <div id="templates" class="step list" data-x="-10800" data-y="-4650" data-scale="0.5">
+                    <div id="templates" class="step code" data-x="-10800" data-y="-4650" data-scale="0.4" data-rotate="-180">
                         <span class="header">Ejemplo de template</span>
                         <br>
+                        <b>String</b>
+                        <pre class="brush: js">
+                           var string = "<tr><td colspan=3>{{>name}}</td></tr>";
+                        </pre>
 
+                        <b>Script Id</b>
+                        <pre class="brush: xml">
+                            <script id="movieTemplate" type="text/x-jsrender">
+                                <div>
+                                    {{:#index+1}}: <b>{{>name}}</b> ({{>releaseYear}})
+                                </div>
+                            </script>
+                        </pre>
+                        
+                        <b>Compile</b>
+                        <pre class="brush: js">
+                            /* Compile markup as named templates */
+                            $.templates({
+                                    titleTemplate: "<tr><td colspan=3>{{>name}}</td></tr>",
+                                    detailTemplate: "#idTemplate"
+                            });
+                        </pre>
                     </div>
 
-                    <div id="objects" class="step list" data-x="-9500" data-y="-4650" data-scale="0.5">
-                        <span class="header">Ejemplo de objetos</span>
+                    <div id="objects" class="step list" data-x="-9600" data-y="-4600" data-scale="0.3">
+                        <span class="header">Objetos</span>
                         <br>
+                        <ul>
+                            <li>Se puede usar cualquier objeto que cumpla con el estandar <b>JSON</b>.</li>
+                            <li>Los datos de entrada pueden ser o un arreglo de <b>JSON</b> o objetos <b>JSON</b>.</li>
+                        </ul>
+                        
+                    </div>
+            
+                    <div id="objects-ejemplo1" class="step code" data-x="-9650" data-y="-4510" data-scale="0.1">
+                        <span class="header">Ejemplo Array</span>
+                        <br>
+                        <b>Template</b>
+                        <pre class="brush: xml">
+                            <script id="movieTemplate" type="text/x-jsrender">
+                                <div>
+                                    {{:#index+1}}: <b>{{:name}}</b> ({{:releaseYear}})
+                                </div>
+                            </script>
+                        </pre>
+                        <b>Array JSON</b>
+                        <pre class="brush: js">
+                            [
+                                    { name: "The Red Violin", releaseYear: "1998" },
+                                    { name: "Eyes Wide Shut", releaseYear: "1999" },
+                                    { name: "The Inheritance", releaseYear: "1976" }
+                            ];        
+                        </pre>
+                        <p>Como es un arreglo el itera sobre el template autmaticamente. Por cada elemento del arreglo.</p><br>
+                        <b>Resultado</b>
+                        <div id="movieList2"></div>
+
+                        
+                    </div>
+                        
+                    <div id="objects-ejemplo2" class="step code" data-x="-9550" data-y="-4525" data-scale="0.1">
+                        <span class="header">Ejemplo <b>JSON</b></span>
+                        <br><br>
+                        
+                        <p>
+                            Usando el mismo template anterior. Pero cambiando la data
+                        </p>
+                        <pre class="brush: js">
+                                    { name: "The Red Violin", releaseYear: "1998" }
+                        </pre>
+                        
+                        <b>Resultado</b>
+                        <div id="movieList3"></div>
+                        <br>
+                        <p>PD: El NaN se genera porque el valor #index no existe si no es un arreglo.</p>
+
                     </div>
 
-                    <div id="if" class="step list" data-x="-8100" data-y="-4800" data-scale="0.5">
+                    <div id="if" class="step list" data-x="-8140" data-y="-4800" data-scale="0.3" data-rotate="-180">
                         <span class="header">Ejemplo de if</span>
                         <br>
 
@@ -365,6 +421,30 @@
                 <script type="text/javascript">
                     SyntaxHighlighter.all()
                 </script>
+                <script type="text/javascript">
+
+                    var movies = [
+                        { name: "The Red Violin", releaseYear: "1998" },
+                        { name: "Eyes Wide Shut", releaseYear: "1999" },
+                        { name: "The Inheritance", releaseYear: "1976" }
+                    ];
+                    var movie = { name: "The Red Violin", releaseYear: "1998" };
+
+                    // Render the template with the movies data and insert
+                    // the rendered HTML under the "movieList" element
+                    $( "#movieList" ).html(
+                    $( "#movieTemplate" ).render( movies )
+                );
+                    $( "#movieList2" ).html(
+                    $( "#movieTemplate" ).render( movies )
+                );
+                    $( "#movieList3" ).html(
+                    $( "#movieTemplate" ).render( movie )
+                );
+
+                </script>
+                
+                
             </body>
         </html>
 
