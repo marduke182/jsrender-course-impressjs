@@ -297,9 +297,80 @@
 
                     </div>
 
-                    <div id="if" class="step list" data-x="-8140" data-y="-4800" data-scale="0.3" data-rotate="-180">
+                    <div id="if" class="step code-mini"  data-x="-8140" data-y="-4800" data-scale="0.1" data-rotate="-180">
                         <span class="header">Ejemplo de if</span>
                         <br>
+                        <b>Template</b>
+                        <pre class="brush: xml">
+                            <script id="if-movieTemplate" type="text/x-jsrender">
+                                    <tr>
+                                            <td>{{>title}}</td>
+                                            <td>
+                                                    {{if languages}}
+                                                            Alternative languages: <em>{{>languages}}</em>.
+                                                    {{else subtitles}}
+                                                            Original language only... <br/>subtitles in <em>{{>subtitles}}</em>.
+                                                    {{else}}
+                                                            Original version only, without subtitles.
+                                                    {{/if}}
+                                            </td>
+                                    </tr>
+                            </script>
+                        </pre>
+                        <b>Array JSON</b>
+                        <pre class="brush: js">
+                            [
+                                {
+                                    title: "Meet Joe Black",
+                                    languages: "English and French",
+                                    subtitles: "English"
+                                },
+                                {
+                                    title: "Eyes Wide Shut",
+                                    subtitles: "French and Spanish"
+                                },
+                                {
+                                    title: "The Mighty"
+                                },
+                                {
+                                    title: "City Hunter",
+                                    languages: "Mandarin and Chinese"
+                                }
+                            ];
+                        </pre>
+                        <p>Como es un arreglo el itera sobre el template autmaticamente. Por cada elemento del arreglo.</p><br>
+                        <b>Resultado</b>
+                        <div>
+                            <table>
+                                    <thead><tr><th>title</th><th>languages</th></tr></thead>
+                                    <tbody id="example-if"></tbody>
+                            </table>
+                        </div>
+                        <script type="text/javascript">
+                                var ifmovies = [
+                                        {
+                                                title: "Meet Joe Black",
+                                                languages: "English and French",
+                                                subtitles: "English"
+                                        },
+                                        {
+                                                title: "Eyes Wide Shut",
+                                                subtitles: "French and Spanish"
+                                        },
+                                        {
+                                                title: "The Mighty"
+                                        },
+                                        {
+                                                title: "City Hunter",
+                                                languages: "Mandarin and Chinese"
+                                        }
+                                ];
+
+                                $( "#example-if" ).html(
+                                        $( "#if-movieTemplate" ).render( ifmovies )
+                                );
+
+                        </script>
 
                     </div>
 
