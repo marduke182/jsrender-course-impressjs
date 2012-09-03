@@ -694,6 +694,9 @@ a:focus {
     font-size: 24px;
 }
 
+.code-mini {
+    font-size: 12px;
+}
 .code .header{
     font-weight: bold;
     margin-bottom: 20px;
